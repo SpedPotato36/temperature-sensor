@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "Ishaan Dan",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 6.45,
+      "left": -102,
+      "attrs": { "env": "micropython-20260406-v1.28.0" }
+    },
+    { "type": "wokwi-ds18b20", "id": "temp1", "top": 18.07, "left": -149.52, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -3.2,
+      "left": 34.4,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -84,
+      "left": -17.4,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "temp1:GND", "pico:GND.5", "black", [ "v0" ] ],
+    [ "temp1:DQ", "pico:GP15", "green", [ "v182.4", "h-201.6" ] ],
+    [ "temp1:VCC", "pico:3V3", "red", [ "v0" ] ],
+    [ "lcd1:VCC", "pico:VBUS", "red", [ "h0" ] ],
+    [ "lcd1:GND", "pico:GND.6", "black", [ "h0" ] ],
+    [ "lcd1:SDA", "pico:GP0", "green", [ "h0" ] ],
+    [ "lcd1:SCL", "pico:GP1", "green", [ "h0" ] ],
+    [ "bz1:2", "pico:GP17", "green", [ "v0" ] ],
+    [ "bz1:1", "pico:GND.5", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
